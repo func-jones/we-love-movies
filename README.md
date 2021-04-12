@@ -1,0 +1,1 @@
+### This project is a work-in-progress. It is a part of Thinkful's curriculum, and I am currently working through my solution. In this project, I am using Node, Express, and Knex to build a back-end for a movies website.
