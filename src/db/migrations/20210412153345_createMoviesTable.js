@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.string("title");
     table.integer("runtime_in_minutes");
     table.string("rating");
-    table.string("description");
+    table.string("description", 1000);
     table.string("image_url");
   });
 };
