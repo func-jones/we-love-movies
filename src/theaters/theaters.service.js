@@ -17,6 +17,10 @@ function list(movieId) {
     });
 }
 
+/**
+ * HELPERS
+ */
+
 async function _attachMovies(theater) {
   theater.movies = await knex("movies as m")
     .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
