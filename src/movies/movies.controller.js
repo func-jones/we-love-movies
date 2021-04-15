@@ -2,7 +2,6 @@ const service = require("./movies.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 async function list(req, res) {
-  // if it is there AND is "true" isShowing is true. Else isShowing will be false.
   const isShowing = req.query.is_showing === "true";
   const movies = await service.list(isShowing);
   res.json({ data: movies });
