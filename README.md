@@ -1,1 +1,1 @@
-### This project is a work-in-progress. It is a part of Thinkful's curriculum, and I am currently working through my solution. In this project, I am using Node, Express, PostgreSQL, and Knex to build a back-end for a movies website.
+### In this project, I am using Node, Express, PostgreSQL, and Knex to build a back-end RESTful API for a movies website. Create, Read, Update, and Destroy requests are received and fulfilled by this API.
