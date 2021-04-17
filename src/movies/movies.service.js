@@ -16,22 +16,11 @@ async function read(movie_id) {
  */
 
 function _listActiveMovies() {
-  return (
-    knex("movies as m")
-      .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
-      .select("m.*", "m.movie_id as id")
-      .where({ is_showing: true })
-      /**
-       * duplicates removed by iterating through the array of movies,
-       * checking to see if the current index has the same id as another
-       * index, if it does, all those that match the condition are removed
-       */
-      .then((activeMovies) => {
-        return activeMovies.filter((element, idx, arr) => {
-          return idx === arr.findIndex((selected) => selected.id === element.id);
-        });
-      })
-  );
+  return knex("movies as m")
+    .join("movies_theaters as mt", "mt.movie_id", "m.movie_id")
+    .select("m.*", "m.movie_id as id")
+    .where({ is_showing: true })
+    .groupBy("m.movie_id");
 }
 
 module.exports = { list, read };
