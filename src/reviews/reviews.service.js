@@ -2,9 +2,7 @@ const knex = require("../db/connection");
 
 function list(movieId) {
   return knex("reviews as r")
-    .join("movies as m", "r.movie_id", "m.movie_id")
-    .join("critics as c", "c.critic_id", "r.critic_id")
-    .select("r.*")
+    .select("*")
     .where({ "r.movie_id": movieId })
     .then((reviews) => {
       return Promise.all(reviews.map(_attachCritics));
